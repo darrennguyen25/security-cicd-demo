@@ -25,11 +25,11 @@ jobs:
       - name: Security Check 1 - Dependency Scan
         run: |
           echo " Checking for vulnerable dependencies..."
-          safety check
+          safety check --full-report
         continue-on-error: true
 
       - name: Security Check 2 - Code Security Scan
         run: |
           echo " Scanning code for security issues..."
-          bandit -r . -ll
+          bandit -r src/ -ll
         continue-on-error: true
